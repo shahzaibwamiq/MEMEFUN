@@ -1,7 +1,7 @@
 export default function Home(){
     return (
         <>
-            <h2 className={"asdasd asdsd"}>asdasda</h2>
+            <h2 className={"asdasd asdsdd"}>asdasda</h2>
         </>
     );
 }
