@@ -2,6 +2,7 @@
 
 import {useState} from "react";
 import WalletModal from "@/components/ui/modals/WalletModal";
+import Image from "next/image";
 
 
 export default function WalletConnect() {
@@ -9,14 +10,20 @@ export default function WalletConnect() {
 
     return (
         <>
-        <div className="cont">
-            <button
-                onClick={() => setIsOpen(!isOpen)}
-            >
-                <img src="./assets/img/wallet.png" alt="" />
-                <span>Connect Wallet</span>
-            </button>
-        </div>
+            <div className="cont">
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                >
+                    <Image
+                        src="/assets/img/wallet.png"
+                        alt="Wallet Icon"
+                        width={48}
+                        height={48}
+                        className="img-fluid"
+                    />
+                    <span>Connect Wallet</span>
+                </button>
+            </div>
             <WalletModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
         </>
     )

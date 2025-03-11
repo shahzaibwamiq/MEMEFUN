@@ -20,11 +20,7 @@ export const metadata: Metadata = {
     description: "Zigchain Luncher",
 };
 
-export default function RootLayout({
-                                       children,
-                                   }: Readonly<{
-    children: React.ReactNode;
-}>) {
+export default function RootLayout({ children}: Readonly<{ children: React.ReactNode; }>) {
     return (
         <html lang="en">
         <body className={`${poppins.className} dark`} data-bs-theme="dark">

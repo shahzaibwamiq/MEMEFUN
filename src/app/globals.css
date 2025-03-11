@@ -319,6 +319,11 @@ section.banner_sec .bannser_sec_first {
 .ban_btn_img img {
   object-fit: scale-down;
   margin-left: 84px;
+  width: 15%;
+}
+img.banner_image {
+  width: 100%;
+  height: 100%;
 }
 .slider_items .slides {
   width: fit-content;
