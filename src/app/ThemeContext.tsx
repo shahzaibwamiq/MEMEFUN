@@ -7,9 +7,13 @@ interface ThemeContextType {
     toggleTheme: () => void;
 }
 
+interface ThemeProviderProps {
+    children: React.ReactNode;
+}
+
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export function ThemeProvider({ children }) {
+export function ThemeProvider({ children }:ThemeProviderProps) {
     const [theme, setTheme] = useState("dark");
 
     useEffect(() => {
