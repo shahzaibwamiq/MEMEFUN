@@ -3,6 +3,7 @@ import Link from "next/link";
 import DarkModeButton from "@/components/ui/buttons/DarkModeButton";
 import NotificationBellButton from "@/components/ui/buttons/NotificationBellButton";
 import WalletConnect from "@/components/ui/buttons/WalletConnecterButton";
+import Image from "next/image";
 
 
 export default function Header() {
@@ -12,7 +13,7 @@ export default function Header() {
           <nav className="navbar navbar-expand-lg ">
             <div className="container-fluid">
               <Link className="navbar-brand" href="/">
-                <img src="./assets/img/logo.png" />
+                <Image alt={''} src="/assets/img/logo.png" width={304} height={119} className={'Logo'} />
               </Link>
               <button
                 className="navbar-toggler"

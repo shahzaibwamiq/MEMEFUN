@@ -1,5 +1,8 @@
+'use client'
+
 import BannerSlider from "../sliders/banner_slider";
 import LaunchNewCoinButton from "@/components/ui/buttons/LaunchNewCoinButton";
+import Image from "next/image";
 
 export default function Banner() {
   return (
@@ -13,23 +16,21 @@ export default function Banner() {
             <div className="col-lg-6">
               <div className="r1">
                 <h1>LOL<span>s</span></h1>
-                <img src="./assets/img/smile.png" alt="" />
+                <Image src="/assets/img/smile.png" alt="" width={97} height={97} />
               </div>
               <div className="r2 d-flex">
                 <h1>2LAMBO</h1>
-                <img src="./assets/img/right_smile.png" alt="" />
+                <Image src="/assets/img/right_smile.png" alt="" width={116} height={116} />
                 <span>s</span>
               </div>
               <p>Spot the Next Big Crypto Trend Before It Blows Up!</p>
-              <div className="ban_btn_img d-flex">
-
-              <LaunchNewCoinButton/>
-
-              <img src="./assets/img/arrow.png" alt="" />
+              <div className="ban_btn_img d-flex align-items-center">
+                <LaunchNewCoinButton/>
+                <Image src="/assets/img/arrow.png" alt="" width={100} height={100} />
               </div>
             </div>
             <div className="col-lg-6">
-              <img src="./assets/img/banner_img.png" alt="" />
+              <Image src="/assets/img/banner_img.png" alt="" width={800} height={100} className={'banner_image'}/>
             </div>
           </div>
         </div>

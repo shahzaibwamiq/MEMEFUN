@@ -1,87 +1,88 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 
 const slidesData = [
   {
     background: "./assets/img/red.png",
-    img1: "./assets/img/bs1.png",
+    img1: "/assets/img/bs1.png",
     address: "Ox8w...ae",
     status: "sold",
     price: "0.8 BNB of HotHot",
-    icon: "./assets/img/smile_down.png",
+    icon: "/assets/img/smile_down.png",
     className: "sold-slide",
   },
   {
     background: "./assets/img/green.png",
-    img1: "./assets/img/bs2.png",
+    img1: "/assets/img/bs2.png",
     address: "Ox8w...ae",
     status: "Bought",
     price: "0.8 BNB of HotHot",
-    icon: "./assets/img/smile_up.png",
+    icon: "/assets/img/smile_up.png",
     className: "bought-slide",
   },
   {
     background: "./assets/img/orange.png",
-    img1: "./assets/img/bs3.png",
+    img1: "/assets/img/bs3.png",
     address: "Ox8w...ae",
     status: "Launched",
     price: "0.8 BNB of HotHot",
-    icon: "./assets/img/smile_down.png",
+    icon: "/assets/img/smile_down.png",
     className: "launch-slide",
   },
   {
     background: "./assets/img/red.png",
-    img1: "./assets/img/bs1.png",
+    img1: "/assets/img/bs1.png",
     address: "Ox8w...ae",
     status: "sold",
     price: "0.8 BNB of HotHot",
-    icon: "./assets/img/smile_down.png",
+    icon: "/assets/img/smile_down.png",
     className: "sold-slide",
   },
   {
     background: "./assets/img/green.png",
-    img1: "./assets/img/bs2.png",
+    img1: "/assets/img/bs2.png",
     address: "Ox8w...ae",
     status: "Bought",
     price: "0.8 BNB of HotHot",
-    icon: "./assets/img/smile_up.png",
+    icon: "/assets/img/smile_up.png",
     className: "bought-slide",
   },
   {
     background: "./assets/img/orange.png",
-    img1: "./assets/img/bs3.png",
+    img1: "/assets/img/bs3.png",
     address: "Ox8w...ae",
     status: "Launched",
     price: "0.8 BNB of HotHot",
-    icon: "./assets/img/smile_down.png",
+    icon: "/assets/img/smile_down.png",
     className: "launch-slide",
   },
   {
     background: "./assets/img/red.png",
-    img1: "./assets/img/bs1.png",
+    img1: "/assets/img/bs1.png",
     address: "Ox8w...ae",
     status: "sold",
     price: "0.8 BNB of HotHot",
-    icon: "./assets/img/smile_down.png",
+    icon: "/assets/img/smile_down.png",
     className: "sold-slide",
   },
   {
     background: "./assets/img/green.png",
-    img1: "./assets/img/bs2.png",
+    img1: "/assets/img/bs2.png",
     address: "Ox8w...ae",
     status: "Bought",
     price: "0.8 BNB of HotHot",
-    icon: "./assets/img/smile_up.png",
+    icon: "/assets/img/smile_up.png",
     className: "bought-slide",
   },
   {
     background: "./assets/img/orange.png",
-    img1: "./assets/img/bs3.png",
+    img1: "/assets/img/bs3.png",
     address: "Ox8w...ae",
     status: "Launched",
     price: "0.8 BNB of HotHot",
-    icon: "./assets/img/smile_down.png",
+    icon: "/assets/img/smile_down.png",
     className: "launch-slide",
   },
 ];
@@ -118,9 +119,9 @@ export default function BannerSlider() {
     setCurrent((prev) => prev + 1);
   };
 
-  const prevSlide = () => {
-    setCurrent((prev) => prev - 1);
-  };
+  // const prevSlide = () => {
+  //   setCurrent((prev) => prev - 1);
+  // };
 
   // Handle infinite loop transition
   useEffect(() => {
@@ -202,7 +203,7 @@ export default function BannerSlider() {
             }}
           >
             <div className="d-flex">
-              <img src={slide.img1} alt="" className="img1" />
+              <Image width={125} height={138} src={slide.img1} alt="" className="img1" />
               <div className="cont">
                 <div className="badge d-flex">
                   <strong>{slide.address}</strong>
@@ -210,7 +211,7 @@ export default function BannerSlider() {
                 </div>
                 <p>{slide.price}</p>
               </div>
-              <img src={slide.icon} alt="" />
+              <Image width={125} height={138} src={slide.icon} alt="" />
             </div>
           </div>
         ))}
