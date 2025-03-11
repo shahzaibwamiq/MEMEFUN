@@ -1,14 +1,16 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Banner from "@/components/banner/banner";
+import Profilelist from "@/components/proflielist/profilelist";
 
 export default function Home() {
   return (
 <>
        <Banner />
+       <Profilelist/>
      
       <footer className={styles.footer}>
-        <a
+        {/* <a
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
@@ -49,7 +51,7 @@ export default function Home() {
             height={16}
           />
           Go to nextjs.org →
-        </a>
+        </a> */}
       </footer>
       </>
   );
