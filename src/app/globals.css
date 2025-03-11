@@ -608,7 +608,7 @@ section.profile_sec {
     background: linear-gradient(269deg, #1EF514, #DFFC00);
     border-radius: 30px;
     border: 3px solid #14212B;
-    z-index: 9999;
+    z-index: 9;
     font-weight: 600;
 }
 
@@ -960,6 +960,81 @@ section.profile_sec {
   z-index: -1;
   background: linear-gradient(360deg, oklab(0 0 0 / .69), lab(85.26 -75.1 77.39 / 0.3));
   opacity: 0.4;
+}
+/* Connect Modal Css */
+.connect_wallet  .modal-dialog {
+  background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+    position: relative;
+    padding: 85px 68px;
+    padding-bottom: 20px;
+    border: 1px solid #707070;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.connect_wallet h5.modal-title {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  padding: 0;
+  line-height: 1;
+}
+
+.connect_wallet .modal-header {
+  text-align: center !important;
+  justify-content: center;
+  position: unset !important;
+}
+
+.connect_wallet button.btn-close {
+  position: absolute;
+  top: 30px;
+  right: 49px;
+  font-size: 26px;
+}
+
+.connect_wallet .modal-dialog .modal-content {
+  position: unset;
+}
+
+.connect_wallet  .modal-body p {
+  text-align: center;
+  width: 80%;
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0 auto;
+  color: #9C9C9C;
+  margin-bottom: 50px;
+}
+
+.connect_wallet .modal-body ul {
+  padding: 0;
+  column-count: 2;
+  margin: 0;
+  list-style: none;
+}
+
+.connect_wallet .btn_wallet {
+  width: 94%;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 49px;
+  background: #111111;
+  height: 93px;
+  border-radius: 16px;
+  border: 1px solid #707070;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  color: #9C9C9C;
+  transition: all 0.5s;
+}
+
+.connect_wallet .btn_wallet:hover {
+  border: 2px solid #25F614;
 }
 @media (max-width: 1600px) {
   .ft3 .ft_btn button {
