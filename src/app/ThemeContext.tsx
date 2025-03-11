@@ -1,6 +1,7 @@
 "use client";
 
 import {createContext, useContext, useEffect, useState} from "react";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 interface ThemeContextType {
     theme: string;
