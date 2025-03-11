@@ -8,7 +8,7 @@ export default function Banner() {
     background: "url('/assets/img/banner_back.png') no-repeat center center/cover",
   }}
   >
-        <div className="container-fluid">
+        <div className="container-fluid bannser_sec_first">
           <div className="row">
             <div className="col-lg-6">
               <div className="r1">

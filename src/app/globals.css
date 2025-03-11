@@ -211,8 +211,8 @@ header.head_main .header_side .cont img {
 }
 section.banner_sec {
   padding-top: 110px;
-  padding-right: 5%;
-  padding-left: 5%;
+  /* padding-right: 5%;
+  padding-left: 5%; */
   background-attachment: fixed;
 }
 
@@ -280,7 +280,10 @@ section.banner_sec p {
   z-index: 999;
   border: none;
 }
-
+section.banner_sec .bannser_sec_first {
+  padding-right: 6%;
+  padding-left: 6%;
+}
 .banner_btn {
   width: fit-content;
   position: relative;
@@ -376,5 +379,32 @@ section.banner_sec p {
   border: 1px solid #FF172D;
   line-height: 1;
   text-shadow: 0 3px 6px #ffffff;
+  color: #000;
+}
+.banner-slider {
+  padding-top: 50px;
+}
+.slides.bought-slide {
+  box-shadow: 0 5px 15px hwb(115deg 8% 4% / 74%);
+  color: #000;
+}
+
+.slides.bought-slide span.sold {
+  background: linear-gradient(270deg, #DEFF00, #15910B);
+  border: 1px solid #0E8004;
+}
+
+.slides.bought-slide strong,.slides.bought-slide p {
+  color: #000;
+}
+.slides.launch-slide {
+  box-shadow: 0 7px 15px #FC9700;
+}
+
+.slides.launch-slide span.sold {
+  background: linear-gradient(270deg, #DEFF00, #15910B);
+}
+
+.slides.launch-slide strong,.slider_items .slides p {
   color: #000;
 }
