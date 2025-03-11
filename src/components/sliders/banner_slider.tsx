@@ -119,9 +119,9 @@ export default function BannerSlider() {
     setCurrent((prev) => prev + 1);
   };
 
-  const prevSlide = () => {
-    setCurrent((prev) => prev - 1);
-  };
+  // const prevSlide = () => {
+  //   setCurrent((prev) => prev - 1);
+  // };
 
   // Handle infinite loop transition
   useEffect(() => {

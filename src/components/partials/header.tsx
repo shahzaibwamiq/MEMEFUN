@@ -13,7 +13,7 @@ export default function Header() {
           <nav className="navbar navbar-expand-lg ">
             <div className="container-fluid">
               <Link className="navbar-brand" href="/">
-                <Image alt={''} src="/assets/img/logo.png" width={304} height={119} className={'Logo'}/>
+                <Image alt={''} src="/assets/img/logo.png" width={304} height={119} className={'Logo'} />
               </Link>
               <button
                 className="navbar-toggler"
