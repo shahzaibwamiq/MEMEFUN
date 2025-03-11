@@ -1,7 +1,6 @@
 "use client";
 
 import {createContext, useContext, useEffect, useState} from "react";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 interface ThemeContextType {
     theme: string;
@@ -25,6 +24,10 @@ export function ThemeProvider({ children }:ThemeProviderProps) {
 
         useEffect(() => {
             if (typeof window !== "undefined") {
+                import("bootstrap/dist/js/bootstrap.bundle.min.js")
+                    .then(() => console.log("Bootstrap JS Loaded"))
+                    .catch((err) => console.error("Bootstrap JS Error:", err));
+
                 const storedTheme = localStorage.getItem("theme");
                 if (storedTheme) {
                     setTheme(storedTheme);
