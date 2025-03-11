@@ -1,4 +1,5 @@
-import BannerSlider from "./banner_slider";
+import BannerSlider from "../sliders/banner_slider";
+import LaunchNewCoinButton from "@/components/ui/buttons/LaunchNewCoinButton";
 
 export default function Banner() {
   return (
@@ -21,9 +22,9 @@ export default function Banner() {
               </div>
               <p>Spot the Next Big Crypto Trend Before It Blows Up!</p>
               <div className="ban_btn_img d-flex">
-              <div className="banner_btn">
-                <a href="!#">Launch New Coin</a>
-              </div>
+
+              <LaunchNewCoinButton/>
+
               <img src="./assets/img/arrow.png" alt="" />
               </div>
             </div>

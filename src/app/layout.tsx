@@ -1,40 +1,39 @@
-
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/partials/header";
 import BootstrapProvider from "@/components/partials/BootstrapProvider";
 import { config } from '@fortawesome/fontawesome-svg-core';
-import '@fortawesome/fontawesome-svg-core/styles.css'; // Import the CSS
+import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
+import { Poppins } from 'next/font/google';
+import { ThemeProvider } from "@/app/ThemeContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+
+const poppins = Poppins({
+    subsets: ['latin'],
+    weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
+// Metadata
 export const metadata: Metadata = {
-  title: "Meme Fun",
-  description: "Zigchain Luncher",
+    title: "Meme Fun",
+    description: "Zigchain Luncher",
 };
 
 export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
+                                       children,
+                                   }: Readonly<{
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <BootstrapProvider />
-        <Header />
-        {children}
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en">
+        <body className={`${poppins.className} dark`} data-bs-theme="dark">
+        <ThemeProvider>
+            <BootstrapProvider />
+            <Header />
+           {children}
+        </ThemeProvider>
+        </body>
+        </html>
+    );
 }
