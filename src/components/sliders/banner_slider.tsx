@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const slidesData = [
   {
@@ -10,6 +10,25 @@ const slidesData = [
     status: "sold",
     price: "0.8 BNB of HotHot",
     icon: "./assets/img/smile_down.png",
+    className: "sold-slide",
+  },
+  {
+    background: "./assets/img/green.png",
+    img1: "./assets/img/bs2.png",
+    address: "Ox8w...ae",
+    status: "Bought",
+    price: "0.8 BNB of HotHot",
+    icon: "./assets/img/smile_up.png",
+    className: "bought-slide",
+  },
+  {
+    background: "./assets/img/orange.png",
+    img1: "./assets/img/bs3.png",
+    address: "Ox8w...ae",
+    status: "Launched",
+    price: "0.8 BNB of HotHot",
+    icon: "./assets/img/smile_down.png",
+    className: "launch-slide",
   },
   {
     background: "./assets/img/red.png",
@@ -18,6 +37,25 @@ const slidesData = [
     status: "sold",
     price: "0.8 BNB of HotHot",
     icon: "./assets/img/smile_down.png",
+    className: "sold-slide",
+  },
+  {
+    background: "./assets/img/green.png",
+    img1: "./assets/img/bs2.png",
+    address: "Ox8w...ae",
+    status: "Bought",
+    price: "0.8 BNB of HotHot",
+    icon: "./assets/img/smile_up.png",
+    className: "bought-slide",
+  },
+  {
+    background: "./assets/img/orange.png",
+    img1: "./assets/img/bs3.png",
+    address: "Ox8w...ae",
+    status: "Launched",
+    price: "0.8 BNB of HotHot",
+    icon: "./assets/img/smile_down.png",
+    className: "launch-slide",
   },
   {
     background: "./assets/img/red.png",
@@ -26,10 +64,29 @@ const slidesData = [
     status: "sold",
     price: "0.8 BNB of HotHot",
     icon: "./assets/img/smile_down.png",
+    className: "sold-slide",
+  },
+  {
+    background: "./assets/img/green.png",
+    img1: "./assets/img/bs2.png",
+    address: "Ox8w...ae",
+    status: "Bought",
+    price: "0.8 BNB of HotHot",
+    icon: "./assets/img/smile_up.png",
+    className: "bought-slide",
+  },
+  {
+    background: "./assets/img/orange.png",
+    img1: "./assets/img/bs3.png",
+    address: "Ox8w...ae",
+    status: "Launched",
+    price: "0.8 BNB of HotHot",
+    icon: "./assets/img/smile_down.png",
+    className: "launch-slide",
   },
 ];
 
-// To enable infinite looping we clone the last and first slide.
+// To enable infinite looping, we clone the last and first slide.
 export default function BannerSlider() {
   const extendedSlides = [
     slidesData[slidesData.length - 1],
@@ -37,12 +94,25 @@ export default function BannerSlider() {
     slidesData[0],
   ];
 
-  // Start at index 1 (first "real" slide)
   const [current, setCurrent] = useState(1);
   const [transitionEnabled, setTransitionEnabled] = useState(true);
-
-  // Each slide will take 1/3.5 of the container width (3 full + half slide)
   const slideWidthPercent = 100 / 3.5; // ~28.57%
+  const autoSlideInterval = 3000; // Auto-slide every 3 seconds
+  let slideTimer: NodeJS.Timeout;
+
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+
+  // Auto-slide functionality
+  useEffect(() => {
+    slideTimer = setInterval(() => {
+      nextSlide();
+    }, autoSlideInterval);
+
+    return () => clearInterval(slideTimer); // Cleanup on unmount
+  }, [current]);
 
   const nextSlide = () => {
     setCurrent((prev) => prev + 1);
@@ -52,51 +122,83 @@ export default function BannerSlider() {
     setCurrent((prev) => prev - 1);
   };
 
-  // When reaching a cloned slide, disable transition and jump to the proper real slide
+  // Handle infinite loop transition
   useEffect(() => {
     if (current === extendedSlides.length - 1) {
-      // Reached clone of first slide; jump to first real slide (index 1)
       setTimeout(() => {
         setTransitionEnabled(false);
         setCurrent(1);
       }, 500);
-      setTimeout(() => {
-        setTransitionEnabled(true);
-      }, 510);
+      setTimeout(() => setTransitionEnabled(true), 510);
     }
     if (current === 0) {
-      // Reached clone of last slide; jump to last real slide (index = extendedSlides.length - 2)
       setTimeout(() => {
         setTransitionEnabled(false);
         setCurrent(extendedSlides.length - 2);
       }, 500);
-      setTimeout(() => {
-        setTransitionEnabled(true);
-      }, 510);
+      setTimeout(() => setTransitionEnabled(true), 510);
     }
   }, [current, extendedSlides.length]);
+
+  // Handle drag functionality
+  const handleMouseDown = (e: React.MouseEvent) => {
+    isDragging.current = true;
+    startX.current = e.pageX - (sliderRef.current?.offsetLeft || 0);
+    scrollLeft.current = sliderRef.current?.scrollLeft || 0;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging.current) return;
+    const x = e.pageX - (sliderRef.current?.offsetLeft || 0);
+    const walk = (x - startX.current) * 2; // Speed factor
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft = scrollLeft.current - walk;
+    }
+  };
+
+  const handleMouseUp = () => {
+    isDragging.current = false;
+  };
 
   return (
     <div
       className="banner-slider"
-      style={{ position: "relative", overflow: "hidden", width: "100%" }}
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        width: "100%",
+      }}
+      onMouseEnter={() => clearInterval(slideTimer)} // Pause on hover
+      onMouseLeave={() =>
+        (slideTimer = setInterval(() => nextSlide(), autoSlideInterval))
+      } // Resume on mouse leave
     >
       <div
+        ref={sliderRef}
         className="slider_items"
         style={{
           display: "flex",
           transition: transitionEnabled ? "transform 0.5s ease-in-out" : "none",
           transform: `translateX(-${current * slideWidthPercent}%)`,
+          gap: "10px", // Add margin between slides
+          cursor: isDragging.current ? "grabbing" : "grab",
         }}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
       >
         {extendedSlides.map((slide, index) => (
           <div
             key={index}
-            className="item slides"
+            className={`item slides ${slide.className}`}
             style={{
               flex: `0 0 calc(100% / 3.5)`,
               background: `url('${slide.background}')`,
               backgroundSize: "cover",
+              padding: "10px", // Add spacing inside slides
+              borderRadius: "10px", // Optional styling
+              marginRight:"50px",
             }}
           >
             <div className="d-flex">
@@ -113,7 +215,7 @@ export default function BannerSlider() {
           </div>
         ))}
       </div>
-      <button
+      {/* <button
         onClick={prevSlide}
         style={{
           position: "absolute",
@@ -123,8 +225,8 @@ export default function BannerSlider() {
         }}
       >
         Prev
-      </button>
-      <button
+      </button> */}
+      {/* <button
         onClick={nextSlide}
         style={{
           position: "absolute",
@@ -134,7 +236,7 @@ export default function BannerSlider() {
         }}
       >
         Next
-      </button>
+      </button> */}
     </div>
   );
 }
