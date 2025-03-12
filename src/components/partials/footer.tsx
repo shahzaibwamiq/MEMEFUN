@@ -8,10 +8,10 @@ export default function Footer() {
     background: "url('/assets/img/ft_back.png') no-repeat center center",
   }}
   >  
-      <div className="container-fluid">
+      <div className="container">
         <div className="row">
             <div className="col-md-4 col-sm-12 ft1">
-                <Image alt="" width={370} height={144} src='/assets/img/footer_logo.png' />
+                <Image alt="" width={306} height={119} src='/assets/img/footer_logo.png' />
                 <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium </p>
             </div>
             <div className="col-md-4 col-sm-12 ft2">

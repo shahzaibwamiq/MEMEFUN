@@ -66,8 +66,8 @@ export default function CoinFilters(){
 
                         <button className="icon-button">
                             <Image
-                                width={45}
-                                height={24}
+                                width={27}
+                                height={20}
                                 alt=""
                                 src="/assets/img/bars.png"
                             />

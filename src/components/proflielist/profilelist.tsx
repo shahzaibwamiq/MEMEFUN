@@ -9,14 +9,14 @@ export default function Profilelist() {
   return (
     <>
       <section className="profile_sec">
-        <div className="container-fluid">
+        <div className="container">
           <div className="row">
             <div className="col-12">
                 <CoinFilters />
             </div>
           </div>
         </div>
-        <div className="container-fluid">
+        <div className="container">
           <CoinBoxs />
           <div className="row pagination_row ">
            <div className="col-12 pagi_col">
