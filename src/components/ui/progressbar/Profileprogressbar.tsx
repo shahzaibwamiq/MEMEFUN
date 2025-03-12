@@ -6,16 +6,15 @@ interface ProgressBarProps{
 
 const ProgressBar = ({ progress }: ProgressBarProps) => {
   return (
-    <div className="position-relative mt-3 px-3 progress_info bg-dark p-4 rounded text-center w-100" style={{ maxWidth: "300px" }}>
+    <div className="position-relative mt-3 px-3 progress_info  p-4 rounded text-center w-100 progress_bar_cs" style={{ maxWidth: "100%" }}>
       {/* Title */}
-      <h2 className="text-white fs-5 fw-semibold mb-2">Progress</h2>
 
       {/* Progress Bar */}
-      <div className="progress" style={{ height: "12px" }}>
+      <div className="progress" style={{ height: "27px" }}>
         <div
           className="progress-bar bg-success"
           role="progressbar"
-          style={{ width: `${progress}%` }}
+          style={{ width: `${progress}%` , background: "url('/assets/img/profile/prog.png') no-repeat center center/cover" }}
           aria-valuenow={progress}
           aria-valuemin={0}
           aria-valuemax={100}
