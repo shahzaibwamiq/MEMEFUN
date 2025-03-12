@@ -3,13 +3,10 @@
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faGlobe,
-  faTimes,
   faStar,
   faClock,
 } from "@fortawesome/free-solid-svg-icons";
 import Profileprogressbar from "../ui/progressbar/Profileprogressbar";
-import { width } from "@fortawesome/free-brands-svg-icons/fa42Group";
 
 export default function Profilelist() {
 
