@@ -1,5 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGlobe, faTimes } from "@fortawesome/free-solid-svg-icons";
+'use client'
 
 interface ProgressBarProps{
     progress : number

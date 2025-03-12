@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,8 +11,7 @@ import {
 import Profileprogressbar from "../ui/progressbar/Profileprogressbar";
 import { width } from "@fortawesome/free-brands-svg-icons/fa42Group";
 
-export default function profilelist() {
-  const [progress, setProgress] = useState(36); // Default progress is 36%
+export default function Profilelist() {
 
   return (
     <>
