@@ -19,12 +19,12 @@ export default function Footer() {
                 Useful Links
                 </h3>
                 <ul className="ft_nav">
-                    <li><a href="#">My Tokens</a></li>
-                    <li><a href="#">Rewards</a></li>
+                    <li><a href="my-tokens">My Tokens</a></li>
+                    <li><a href="rewards">Rewards</a></li>
                     <li><a href="#">How It Work</a></li>
                     <li><a href="#">Advanced</a></li>
-                    <li><a href="#">Documentation</a></li>
-                    <li><a href="#">Fees</a></li>
+                    <li><a href="documentation">Documentation</a></li>
+                    <li><a href="fees">Fees</a></li>
                 </ul>
             </div>
             <div className="col-md-4 col-sm-12 ft3">
@@ -55,9 +55,9 @@ export default function Footer() {
                 <span>© 2025 Memes.fun. All rights reserved</span>
                 <div className="terms_link">
                     <ul>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="privacy-policy">Privacy Policy</a></li>
                         <li>|</li>
-                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="terms-of-services">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
