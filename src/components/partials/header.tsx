@@ -4,6 +4,7 @@ import DarkModeButton from "@/components/ui/buttons/DarkModeButton";
 import NotificationBellButton from "@/components/ui/buttons/NotificationBellButton";
 import WalletConnect from "@/components/ui/buttons/WalletConnecterButton";
 import Image from "next/image";
+import Login from "../ui/modals/login";
 
 
 export default function Header() {
@@ -67,6 +68,11 @@ export default function Header() {
                 <WalletConnect />
                 <DarkModeButton />
                 <NotificationBellButton />
+                <div className="login_btn">
+                  <Login />
+                  {/* <button>Login</button> */}
+                </div>
+
 
               </div>
             </div>

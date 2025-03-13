@@ -120,24 +120,23 @@ export default function LaunchTokenModal({
                     <span>Advanced Settings</span>
                     <div className="cont">
                       <div className="adva_check">
-                        <label className="switch" htmlFor="checkbox">
-                          <input type="checkbox" id="checkbox" />
+                        <label className="switch" htmlFor="checkbox1">
+                          <input type="checkbox" id="checkbox1" />
                           <div className="slider round"></div>
                         </label>
                       </div>
                       <div className="cont_right">
                       <strong>7% Single Buyer Limit</strong>
                       <span>Limit the maximum number of tokens a single buyer can purchase to 7% of the total supply. This setting ensures a fairer distribution of tokens. <a href="#">More info…</a></span>
-                      <div className="dep_fee">
+                      </div>
+                    </div>
+                    <div className="dep_fee">
                         <p>Deploy service fee <span>0.0005 ZIG</span></p>
                       </div>
                       <div className="term_agre">
                       <input type="checkbox" id="checkbox" />
                       <span>I agree to the Meme.fun <a href="#">Terms of Use</a></span>
                       </div>
-
-                      </div>
-                    </div>
                   </div>
                   {/* Connect Wallet Button */}
                   <button className="w-full submit_btn">
