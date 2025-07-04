@@ -1,0 +1,53 @@
+name: Deploy Next.js SSR App
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm install --force
+
+      - name: Build Next.js app
+        run: npm run build
+
+      - name: Install sshpass and rsync
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sshpass rsync
+
+      - name: Clean remote directory
+        run: |
+          sshpass -p "${{ secrets.VPS_PASSWORD }}" ssh -o StrictHostKeyChecking=no -p ${{ secrets.VPS_PORT || 22 }} ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "rm -rf /var/www/mdf.memes.fun/*"
+
+      - name: Sync build files to server
+        run: |
+          rsync -avz --links --chmod=ugo=rwX --partial --progress --delete -e "sshpass -p '${{ secrets.VPS_PASSWORD }}' ssh -o StrictHostKeyChecking=no -p ${{ secrets.VPS_PORT || 22 }}" .next package.json package-lock.json public ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/mdf.memes.fun/
+
+      - name: Install production dependencies on server
+        run: |
+          sshpass -p "${{ secrets.VPS_PASSWORD }}" ssh -o StrictHostKeyChecking=no -p ${{ secrets.VPS_PORT || 22 }} ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "cd /var/www/mdf.memes.fun && npm install --production --force"
+
+      - name: Restart app with PM2
+        run: |
+          sshpass -p "${{ secrets.VPS_PASSWORD }}" ssh -o StrictHostKeyChecking=no -p ${{ secrets.VPS_PORT || 22 }} ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "
+            cd /var/www/mdf.memes.fun &&
+            pm2 restart meme-fun || pm2 start npm --name meme-fun -- start
+          "
+      
