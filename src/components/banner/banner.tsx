@@ -13,7 +13,7 @@ export default function Banner({ ApiUrl }: BannerProps) {
     <>
       {/* Banner Section with Background Image */}
       <section className="banner_sec"  style={{
-        // background: "url('/assets/img/banneR_bg.png') no-repeat center center/contain",
+        // background: "url('/assets/img/banneR_bg.png') no -repeat center center/contain",
       }}>
         <div className="banner_sec_new container "  style={{
         background: "url('/assets/img/banner.png') no-repeat center ",
